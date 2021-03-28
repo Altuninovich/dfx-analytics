@@ -16,7 +16,10 @@ export class Analysis extends React.Component {
             percentInputDfxStaking: null, 
             percentOutputDfxStaking: null,
             inputDfxStaking: 0,
-            outputDfxStaking: 0
+            outputDfxStaking: 0,
+            totalSumPancake: 0,
+            totalSumFarming: 0,
+            totalSumStaking: 0
 
         }
     }
@@ -39,7 +42,8 @@ export class Analysis extends React.Component {
                 inputDfxPancakeSwap: quantityReturnDfx,
                 outputDfxPancakeSwap: quantityAcceptedDfx,
                 percentInputDfxPancakeSwap: quantityReturnDfx * 100 / totalSumDfx,
-                percentOutputDfxPancakeSwap: quantityAcceptedDfx * 100 / totalSumDfx
+                percentOutputDfxPancakeSwap: quantityAcceptedDfx * 100 / totalSumDfx,
+                totalSumPancake: totalSumDfx
             })
                         
         } catch (error) {
@@ -65,7 +69,8 @@ export class Analysis extends React.Component {
                 inputDfxFarmingPool: totalSumAddPool, 
                 outputDfxFarmingPool: totalSumFromPool, 
                 percentInputDfxFarmingPool: totalSumAddPool * 100 / totalSum,
-                percentOutputDfxFarmingPool: totalSumFromPool * 100 / totalSum
+                percentOutputDfxFarmingPool: totalSumFromPool * 100 / totalSum,
+                totalSumFarming: totalSum
             })
         } catch (error) {
             
@@ -90,7 +95,8 @@ export class Analysis extends React.Component {
                 inputDfxStaking: totalSumAddStaking, 
                 outputDfxStaking: totalSumFromStaking, 
                 percentInputDfxStaking: totalSumAddStaking * 100 / totalSum,
-                percentOutputDfxStaking: totalSumFromStaking * 100 / totalSum
+                percentOutputDfxStaking: totalSumFromStaking * 100 / totalSum,
+                totalSumStaking: totalSum
             })
         } catch (error) {
             
@@ -129,8 +135,17 @@ export class Analysis extends React.Component {
             percentInputDfxStaking, 
             percentOutputDfxStaking, 
             inputDfxStaking, 
-            outputDfxStaking
+            outputDfxStaking,
+            totalSumPancake,
+            totalSumFarming,
+            totalSumStaking
+
         } = this.state
+
+        const getPercent = (val) => Math.floor(val * 100 / (totalSumPancake + totalSumFarming + totalSumStaking) * 1000) / 1000
+        let percentPancake = getPercent(totalSumPancake)
+        let percentFarming = getPercent(totalSumFarming)
+        let percentStaking = getPercent(totalSumStaking) 
     return (
         <>
         <div>
@@ -157,6 +172,17 @@ export class Analysis extends React.Component {
           <ProgressBar variant="success" now={percentInputDfxStaking} label={`${percentInputDfxStaking}%`} />
           выход из Dfx-Staking - <Badge variant="danger">{outputDfxStaking}</Badge>
           <ProgressBar variant="danger" now={percentOutputDfxStaking} label={`${percentOutputDfxStaking}%`} />
+      </div>
+      <Alert variant={'dark'}></Alert>
+      <Alert variant={'dark'}></Alert>
+      <div>
+          <p><strong>Информация по общему обороту</strong></p>
+          оборот на PancakeSwap - <Badge variant="dark">{totalSumPancake}</Badge>
+          <ProgressBar striped variant="success" now={percentPancake} label={`${percentPancake}%`} />
+          оборот на Farming - <Badge variant="dark">{totalSumFarming}</Badge>
+          <ProgressBar striped variant="info" now={percentFarming} label={`${percentFarming}%`} />
+          оборот на Dfx-Staking - <Badge variant="dark">{totalSumStaking}</Badge>
+          <ProgressBar striped variant="warning" now={percentStaking} label={`${percentStaking}%`} />
       </div>
       <Alert variant={'dark'}></Alert>
       <Alert variant={'dark'}></Alert>
