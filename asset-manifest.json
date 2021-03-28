@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/dfx-analytics/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/dfx-analytics/static/js/main.aa7a3937.chunk.js",
+    "main.js.map": "/dfx-analytics/static/js/main.aa7a3937.chunk.js.map",
+    "runtime-main.js": "/dfx-analytics/static/js/runtime-main.5f78426f.js",
+    "runtime-main.js.map": "/dfx-analytics/static/js/runtime-main.5f78426f.js.map",
+    "static/css/2.4c97ca4f.chunk.css": "/dfx-analytics/static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.22490e68.chunk.js": "/dfx-analytics/static/js/2.22490e68.chunk.js",
+    "static/js/2.22490e68.chunk.js.map": "/dfx-analytics/static/js/2.22490e68.chunk.js.map",
+    "static/js/3.5fa5ccd3.chunk.js": "/dfx-analytics/static/js/3.5fa5ccd3.chunk.js",
+    "static/js/3.5fa5ccd3.chunk.js.map": "/dfx-analytics/static/js/3.5fa5ccd3.chunk.js.map",
+    "index.html": "/dfx-analytics/index.html",
+    "static/css/2.4c97ca4f.chunk.css.map": "/dfx-analytics/static/css/2.4c97ca4f.chunk.css.map",
+    "static/css/main.6dea0f05.chunk.css.map": "/dfx-analytics/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.22490e68.chunk.js.LICENSE.txt": "/dfx-analytics/static/js/2.22490e68.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5f78426f.js",
+    "static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.22490e68.chunk.js",
+    "static/css/main.6dea0f05.chunk.css",
+    "static/js/main.aa7a3937.chunk.js"
+  ]
+}
