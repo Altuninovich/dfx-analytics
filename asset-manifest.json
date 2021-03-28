@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/dfx-analytics/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/dfx-analytics/static/js/main.aa7a3937.chunk.js",
-    "main.js.map": "/dfx-analytics/static/js/main.aa7a3937.chunk.js.map",
+    "main.js": "/dfx-analytics/static/js/main.45bbdcd8.chunk.js",
+    "main.js.map": "/dfx-analytics/static/js/main.45bbdcd8.chunk.js.map",
     "runtime-main.js": "/dfx-analytics/static/js/runtime-main.5f78426f.js",
     "runtime-main.js.map": "/dfx-analytics/static/js/runtime-main.5f78426f.js.map",
     "static/css/2.4c97ca4f.chunk.css": "/dfx-analytics/static/css/2.4c97ca4f.chunk.css",
@@ -20,6 +20,6 @@
     "static/css/2.4c97ca4f.chunk.css",
     "static/js/2.22490e68.chunk.js",
     "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.aa7a3937.chunk.js"
+    "static/js/main.45bbdcd8.chunk.js"
   ]
 }
