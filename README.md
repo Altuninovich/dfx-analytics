@@ -1,5 +1,5 @@
 # dfx token analysis
-Промежуточный результат(https://altuninovich.github.io/dfx-analytics/).
+Промежуточный результат смотрим тут(https://altuninovich.github.io/dfx-analytics/).
 ## Анализ данных по обороту токена DFX на PancakeSwap, DfxFarmingPool, DfxStaking.
 Все суммы указаны в DFX.
 Данные берутся за последние 24 часа и обновляются каждые 30 секунд.
