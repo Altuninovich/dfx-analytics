@@ -1,6 +1,7 @@
 import React from 'react';
 import {ProgressBar, Container, Badge, Alert} from 'react-bootstrap';
 
+
 const numberSeconds = 86400 //количество секунд в сутках, для фильтрации данных за сутки
 
 export class Analysis extends React.Component {
@@ -143,7 +144,7 @@ export class Analysis extends React.Component {
     }
 
     startAnalysis = () => {
-        this.timerId = setInterval(this.getDataAnalysis, 30000)
+        this.timerId = setInterval(this.getDataAnalysis, 200000)
     }
 
     componentDidMount() {
@@ -185,34 +186,28 @@ export class Analysis extends React.Component {
     return (
         <>
         <Alert variant={'dark'}>Все суммы указаны в DFX.Данные берутся за последние 24 часа и обновляются каждые 30 секунд.</Alert>
-        <div>
+        <div style={{marginBottom: '40px'}}>
           <p><strong>Информация по обмену токена DFX</strong></p>
           BUSD-DFX сумма - <Badge variant="success">{inputDfxPancakeSwap}</Badge>
           <ProgressBar variant="success" now={percentInputDfxPancakeSwap} label={`${percentInputDfxPancakeSwap}%`} />
           DFX-BUSD сумма - <Badge variant="danger">{outputDfxPancakeSwap}</Badge>
           <ProgressBar variant="danger" now={percentOutputDfxPancakeSwap} label={`${percentOutputDfxPancakeSwap}%`} />
         </div>
-        <Alert variant={'dark'}></Alert>
-        <Alert variant={'dark'}></Alert>
-        <div>
+        <div style={{marginBottom: '40px'}}>
           <p><strong>Информация по обороту на Dfx-FarmingPool</strong></p>
           поступление на Dfx-FarmingPool сумма - <Badge variant="success">{inputDfxFarmingPool}</Badge>
           <ProgressBar variant="success" now={percentInputDfxFarmingPool} label={`${percentInputDfxFarmingPool}%`} />
           выход из Dfx-FarmingPool сумма - <Badge variant="danger">{outputDfxFarmingPool}</Badge>
           <ProgressBar variant="danger" now={percentOutputDfxFarmingPool} label={`${percentOutputDfxFarmingPool}%`} />
       </div>
-      <Alert variant={'dark'}></Alert>
-      <Alert variant={'dark'}></Alert>
-      <div>
+      <div style={{marginBottom: '50px'}}>
           <p><strong>Информация по обороту на Dfx-Staking</strong></p>
           поступление на Dfx-Staking сумма - <Badge variant="success">{inputDfxStaking}</Badge>
           <ProgressBar variant="success" now={percentInputDfxStaking} label={`${percentInputDfxStaking}%`} />
           выход из Dfx-Staking сумма - <Badge variant="danger">{outputDfxStaking}</Badge>
           <ProgressBar variant="danger" now={percentOutputDfxStaking} label={`${percentOutputDfxStaking}%`} />
       </div>
-      <Alert variant={'dark'}></Alert>
-      <Alert variant={'dark'}></Alert>
-      <div>
+      <div style={{marginBottom: '60px'}}>
           <p><strong>Информация по общему обороту</strong></p>
           оборот на PancakeSwap - <Badge variant="dark">{`${totalSumPancake} (разница с предыдущими сутками: ${diffBetweenCurrentAndPreviousDayPancakeSwap})`}</Badge>
           <ProgressBar striped variant="success" now={percentPancake} label={`${percentPancake}%`} />
@@ -221,8 +216,6 @@ export class Analysis extends React.Component {
           оборот на Dfx-Staking - <Badge variant="dark">{`${totalSumStaking} (разница с предыдущими сутками: ${diffBetweenCurrentAndPreviousDayStaking})`}</Badge>
           <ProgressBar striped variant="warning" now={percentStaking} label={`${percentStaking}%`} />
       </div>
-      <Alert variant={'dark'}></Alert>
-      <Alert variant={'dark'}></Alert>
       </>
     )
     }
