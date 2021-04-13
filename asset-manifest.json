@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/dfx-analytics/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/dfx-analytics/static/js/main.19b87e6e.chunk.js",
-    "main.js.map": "/dfx-analytics/static/js/main.19b87e6e.chunk.js.map",
+    "main.js": "/dfx-analytics/static/js/main.6c9d50d3.chunk.js",
+    "main.js.map": "/dfx-analytics/static/js/main.6c9d50d3.chunk.js.map",
     "runtime-main.js": "/dfx-analytics/static/js/runtime-main.a5a2a54e.js",
     "runtime-main.js.map": "/dfx-analytics/static/js/runtime-main.a5a2a54e.js.map",
     "static/css/2.4c97ca4f.chunk.css": "/dfx-analytics/static/css/2.4c97ca4f.chunk.css",
-    "static/js/2.9b182534.chunk.js": "/dfx-analytics/static/js/2.9b182534.chunk.js",
-    "static/js/2.9b182534.chunk.js.map": "/dfx-analytics/static/js/2.9b182534.chunk.js.map",
+    "static/js/2.50b68b01.chunk.js": "/dfx-analytics/static/js/2.50b68b01.chunk.js",
+    "static/js/2.50b68b01.chunk.js.map": "/dfx-analytics/static/js/2.50b68b01.chunk.js.map",
     "static/js/3.3b09e1f9.chunk.js": "/dfx-analytics/static/js/3.3b09e1f9.chunk.js",
     "static/js/3.3b09e1f9.chunk.js.map": "/dfx-analytics/static/js/3.3b09e1f9.chunk.js.map",
     "index.html": "/dfx-analytics/index.html",
     "static/css/2.4c97ca4f.chunk.css.map": "/dfx-analytics/static/css/2.4c97ca4f.chunk.css.map",
     "static/css/main.6dea0f05.chunk.css.map": "/dfx-analytics/static/css/main.6dea0f05.chunk.css.map",
-    "static/js/2.9b182534.chunk.js.LICENSE.txt": "/dfx-analytics/static/js/2.9b182534.chunk.js.LICENSE.txt"
+    "static/js/2.50b68b01.chunk.js.LICENSE.txt": "/dfx-analytics/static/js/2.50b68b01.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.a5a2a54e.js",
     "static/css/2.4c97ca4f.chunk.css",
-    "static/js/2.9b182534.chunk.js",
+    "static/js/2.50b68b01.chunk.js",
     "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.19b87e6e.chunk.js"
+    "static/js/main.6c9d50d3.chunk.js"
   ]
 }
