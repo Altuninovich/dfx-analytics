@@ -8,15 +8,15 @@ export class Analysis extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            inputDfxPancakeSwap: null, 
-            outputDfxPancakeSwap: null, 
-            percentInputDfxPancakeSwap: 0, 
+            inputDfxPancakeSwap: null,
+            outputDfxPancakeSwap: null,
+            percentInputDfxPancakeSwap: 0,
             percentOutputDfxPancakeSwap: 0,
-            inputDfxFarmingPool: null, 
-            outputDfxFarmingPool: null, 
-            percentInputDfxFarmingPool: 0, 
+            inputDfxFarmingPool: null,
+            outputDfxFarmingPool: null,
+            percentInputDfxFarmingPool: 0,
             percentOutputDfxFarmingPool: 0,
-            percentInputDfxStaking: null, 
+            percentInputDfxStaking: null,
             percentOutputDfxStaking: null,
             inputDfxStaking: 0,
             outputDfxStaking: 0,
@@ -34,11 +34,11 @@ export class Analysis extends React.Component {
 
     getDiffPercent = (sumCurrent, sumPrevious) => {
         const dif = sumCurrent - sumPrevious
-              if ( dif < 0) {
-                  return `${Math.floor(100 * dif / sumPrevious)}%`
-              }
-              return `+${Math.floor(100 * dif / sumCurrent)}%`
-          }
+        if (dif < 0) {
+            return `${Math.floor(100 * dif / sumPrevious)}%`
+        }
+        return `+${Math.floor(100 * dif / sumCurrent)}%`
+    }
 
     updateExchangerData = async () => {
         const url = 'https://api.bscscan.com/api?module=account&action=tokentx&address=0xe7ff9aceb3767b4514d403d1486b5d7f1b787989&startblock=0&endblock=25000000&sort=asc&apikey='
@@ -57,8 +57,8 @@ export class Analysis extends React.Component {
             //получаем сумму за предыдущие сутки
             const startPointForThePreviousDay = result[result.length - 1].timeStamp - 172800
             const totalSumDfxForThePreviousDay = result
-                                                .filter(({timeStamp, tokenSymbol}) => timeStamp > startPointForThePreviousDay && timeStamp < startPoint && tokenSymbol === "DFX")
-                                                .reduce((acc, el) => acc + el.value / (10 ** 18), 0)
+                .filter(({timeStamp, tokenSymbol}) => timeStamp > startPointForThePreviousDay && timeStamp < startPoint && tokenSymbol === "DFX")
+                .reduce((acc, el) => acc + el.value / (10 ** 18), 0)
 
 
             this.setState({
@@ -69,9 +69,9 @@ export class Analysis extends React.Component {
                 totalSumPancake: totalSumDfx,
                 diffBetweenCurrentAndPreviousDayPancakeSwap: this.getDiffPercent(totalSumDfx, totalSumDfxForThePreviousDay)
             })
-                        
+
         } catch (error) {
-            
+
         }
     }
 
@@ -91,18 +91,18 @@ export class Analysis extends React.Component {
 
             const startPointForThePreviousDay = result[result.length - 1].timeStamp - 172800
             const totalSumDfxForThePreviousDayFarmingPool = result
-                                                .filter(({timeStamp, tokenSymbol}) => timeStamp > startPointForThePreviousDay && timeStamp < startPoint && tokenSymbol === "DFX")
-                                                .reduce((acc, el) => acc + el.value / (10 ** 18), 0)
+                .filter(({timeStamp, tokenSymbol}) => timeStamp > startPointForThePreviousDay && timeStamp < startPoint && tokenSymbol === "DFX")
+                .reduce((acc, el) => acc + el.value / (10 ** 18), 0)
             this.setState({
-                inputDfxFarmingPool: totalSumAddPool, 
-                outputDfxFarmingPool: totalSumFromPool, 
+                inputDfxFarmingPool: totalSumAddPool,
+                outputDfxFarmingPool: totalSumFromPool,
                 percentInputDfxFarmingPool: this.roundNum(totalSumAddPool * 100 / totalSum),
                 percentOutputDfxFarmingPool: this.roundNum(totalSumFromPool * 100 / totalSum),
                 totalSumFarming: totalSum,
                 diffBetweenCurrentAndPreviousDayFarmingPool: this.getDiffPercent(totalSum, totalSumDfxForThePreviousDayFarmingPool)
             })
         } catch (error) {
-            
+
         }
     }
 
@@ -122,18 +122,18 @@ export class Analysis extends React.Component {
 
             const startPointForThePreviousDay = result[result.length - 1].timeStamp - 172800
             const totalSumDfxForThePreviousDayStaking = result
-                                                .filter(({timeStamp, tokenSymbol}) => timeStamp > startPointForThePreviousDay && timeStamp < startPoint)
-                                                .reduce((acc, el) => acc + el.value / (10 ** 18), 0)
+                .filter(({timeStamp, tokenSymbol}) => timeStamp > startPointForThePreviousDay && timeStamp < startPoint)
+                .reduce((acc, el) => acc + el.value / (10 ** 18), 0)
             this.setState({
-                inputDfxStaking: totalSumAddStaking, 
-                outputDfxStaking: totalSumFromStaking, 
+                inputDfxStaking: totalSumAddStaking,
+                outputDfxStaking: totalSumFromStaking,
                 percentInputDfxStaking: this.roundNum(totalSumAddStaking * 100 / totalSum),
                 percentOutputDfxStaking: this.roundNum(totalSumFromStaking * 100 / totalSum),
                 totalSumStaking: totalSum,
                 diffBetweenCurrentAndPreviousDayStaking: this.getDiffPercent(totalSum, totalSumDfxForThePreviousDayStaking)
             })
         } catch (error) {
-            
+
         }
     }
 
@@ -154,21 +154,21 @@ export class Analysis extends React.Component {
 
     componentWillUnmount() {
         clearInterval(this.timerId);
-      }
+    }
 
     render() {
         const {
-            percentInputDfxPancakeSwap, 
-            percentOutputDfxPancakeSwap, 
-            inputDfxPancakeSwap, 
+            percentInputDfxPancakeSwap,
+            percentOutputDfxPancakeSwap,
+            inputDfxPancakeSwap,
             outputDfxPancakeSwap,
             percentInputDfxFarmingPool,
             percentOutputDfxFarmingPool,
             inputDfxFarmingPool,
             outputDfxFarmingPool,
-            percentInputDfxStaking, 
-            percentOutputDfxStaking, 
-            inputDfxStaking, 
+            percentInputDfxStaking,
+            percentOutputDfxStaking,
+            inputDfxStaking,
             outputDfxStaking,
             totalSumPancake,
             totalSumFarming,
@@ -182,41 +182,49 @@ export class Analysis extends React.Component {
         const getPercent = (val) => this.roundNum(val * 100 / (totalSumPancake + totalSumFarming + totalSumStaking))
         let percentPancake = getPercent(totalSumPancake)
         let percentFarming = getPercent(totalSumFarming)
-        let percentStaking = getPercent(totalSumStaking) 
-    return (
-        <>
-        <Alert variant={'dark'}>Все суммы указаны в DFX.Данные берутся за последние 24 часа и обновляются каждые 30 секунд.</Alert>
-        <div style={{marginBottom: '40px'}}>
-          <p><strong>Информация по обмену токена DFX</strong></p>
-          BUSD-DFX сумма - <Badge variant="success">{inputDfxPancakeSwap}</Badge>
-          <ProgressBar variant="success" now={percentInputDfxPancakeSwap} label={`${percentInputDfxPancakeSwap}%`} />
-          DFX-BUSD сумма - <Badge variant="danger">{outputDfxPancakeSwap}</Badge>
-          <ProgressBar variant="danger" now={percentOutputDfxPancakeSwap} label={`${percentOutputDfxPancakeSwap}%`} />
-        </div>
-        <div style={{marginBottom: '40px'}}>
-          <p><strong>Информация по обороту на Dfx-FarmingPool</strong></p>
-          поступление на Dfx-FarmingPool сумма - <Badge variant="success">{inputDfxFarmingPool}</Badge>
-          <ProgressBar variant="success" now={percentInputDfxFarmingPool} label={`${percentInputDfxFarmingPool}%`} />
-          выход из Dfx-FarmingPool сумма - <Badge variant="danger">{outputDfxFarmingPool}</Badge>
-          <ProgressBar variant="danger" now={percentOutputDfxFarmingPool} label={`${percentOutputDfxFarmingPool}%`} />
-      </div>
-      <div style={{marginBottom: '50px'}}>
-          <p><strong>Информация по обороту на Dfx-Staking</strong></p>
-          поступление на Dfx-Staking сумма - <Badge variant="success">{inputDfxStaking}</Badge>
-          <ProgressBar variant="success" now={percentInputDfxStaking} label={`${percentInputDfxStaking}%`} />
-          выход из Dfx-Staking сумма - <Badge variant="danger">{outputDfxStaking}</Badge>
-          <ProgressBar variant="danger" now={percentOutputDfxStaking} label={`${percentOutputDfxStaking}%`} />
-      </div>
-      <div style={{marginBottom: '60px'}}>
-          <p><strong>Информация по общему обороту</strong></p>
-          оборот на PancakeSwap - <Badge variant="dark">{`${totalSumPancake} (разница с предыдущими сутками: ${diffBetweenCurrentAndPreviousDayPancakeSwap})`}</Badge>
-          <ProgressBar striped variant="success" now={percentPancake} label={`${percentPancake}%`} />
-          оборот на Farming - <Badge variant="dark">{`${totalSumFarming} (разница с предыдущими сутками: ${diffBetweenCurrentAndPreviousDayFarmingPool})`}</Badge>
-          <ProgressBar striped variant="info" now={percentFarming} label={`${percentFarming}%`} />
-          оборот на Dfx-Staking - <Badge variant="dark">{`${totalSumStaking} (разница с предыдущими сутками: ${diffBetweenCurrentAndPreviousDayStaking})`}</Badge>
-          <ProgressBar striped variant="warning" now={percentStaking} label={`${percentStaking}%`} />
-      </div>
-      </>
-    )
+        let percentStaking = getPercent(totalSumStaking)
+        return (
+            <>
+                <Alert variant={'dark'}>Все суммы указаны в DFX.Данные берутся за последние 24 часа и обновляются каждые
+                    30 секунд.</Alert>
+                <div style={{marginBottom: '40px'}}>
+                    <p><strong>Информация по обмену токена DFX</strong></p>
+                    BUSD-DFX сумма - <Badge variant="success">{inputDfxPancakeSwap}</Badge>
+                    <ProgressBar variant="success" now={percentInputDfxPancakeSwap}
+                                 label={`${percentInputDfxPancakeSwap}%`}/>
+                    DFX-BUSD сумма - <Badge variant="danger">{outputDfxPancakeSwap}</Badge>
+                    <ProgressBar variant="danger" now={percentOutputDfxPancakeSwap}
+                                 label={`${percentOutputDfxPancakeSwap}%`}/>
+                </div>
+                <div style={{marginBottom: '40px'}}>
+                    <p><strong>Информация по обороту на Dfx-FarmingPool</strong></p>
+                    поступление на Dfx-FarmingPool сумма - <Badge variant="success">{inputDfxFarmingPool}</Badge>
+                    <ProgressBar variant="success" now={percentInputDfxFarmingPool}
+                                 label={`${percentInputDfxFarmingPool}%`}/>
+                    выход из Dfx-FarmingPool сумма - <Badge variant="danger">{outputDfxFarmingPool}</Badge>
+                    <ProgressBar variant="danger" now={percentOutputDfxFarmingPool}
+                                 label={`${percentOutputDfxFarmingPool}%`}/>
+                </div>
+                <div style={{marginBottom: '50px'}}>
+                    <p><strong>Информация по обороту на Dfx-Staking</strong></p>
+                    поступление на Dfx-Staking сумма - <Badge variant="success">{inputDfxStaking}</Badge>
+                    <ProgressBar variant="success" now={percentInputDfxStaking} label={`${percentInputDfxStaking}%`}/>
+                    выход из Dfx-Staking сумма - <Badge variant="danger">{outputDfxStaking}</Badge>
+                    <ProgressBar variant="danger" now={percentOutputDfxStaking} label={`${percentOutputDfxStaking}%`}/>
+                </div>
+                <div style={{marginBottom: '60px'}}>
+                    <p><strong>Информация по общему обороту</strong></p>
+                    оборот на PancakeSwap - <Badge
+                    variant="dark">{`${totalSumPancake} (разница с предыдущими сутками: ${diffBetweenCurrentAndPreviousDayPancakeSwap})`}</Badge>
+                    <ProgressBar striped variant="success" now={percentPancake} label={`${percentPancake}%`}/>
+                    оборот на Farming - <Badge
+                    variant="dark">{`${totalSumFarming} (разница с предыдущими сутками: ${diffBetweenCurrentAndPreviousDayFarmingPool})`}</Badge>
+                    <ProgressBar striped variant="info" now={percentFarming} label={`${percentFarming}%`}/>
+                    оборот на Dfx-Staking - <Badge
+                    variant="dark">{`${totalSumStaking} (разница с предыдущими сутками: ${diffBetweenCurrentAndPreviousDayStaking})`}</Badge>
+                    <ProgressBar striped variant="warning" now={percentStaking} label={`${percentStaking}%`}/>
+                </div>
+            </>
+        )
     }
 }
